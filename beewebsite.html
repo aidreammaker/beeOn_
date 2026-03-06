@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>beeOn – Bee-themed Merch & Good Vibes 🐝</title>
+  <style>
+    :root {
+      --yellow: #fecd00;
+      --black: #1a1a1a;
+      --gold: #e8b923;
+      --white: #fff;
+      --gray: #f5f5f5;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--gray);
+      color: var(--black);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--black);
+      color: var(--yellow);
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img { height: 50px; }
+    .nav-links a {
+      color: var(--yellow);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .cart { font-size: 1.2rem; position: relative; }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 8rem 5% 6rem;
+    }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+    .hero p { font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem; }
+
+    .products {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .product-img {
+      width: 100%;
+      height: 320px;
+      object-fit: contain;
+      background: #fffaf0;
+      padding: 1.5rem;
+    }
+    .product-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .product-info h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .price { font-size: 1.5rem; color: var(--gold); font-weight: bold; margin: 0.5rem 0; }
+    .btn {
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn:hover { background: var(--gold); transform: scale(1.05); }
+
+    footer {
+      background: var(--black);
+      color: var(--yellow);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 6rem 5% 4rem; }
+      .hero h1 { font-size: 2.8rem; }
+      .nav-links { display: none; } /* add mobile menu later if needed */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <!-- You can replace with your own logo -->
+        <img src="https://thumbs.dreamstime.com/b/cute-bee-icon-yellow-black-stripes-light-background-simple-flat-design-small-cartoon-bee-logo-doodle-style-421641903.jpg" alt="beeOn Bee Logo">
+        beeOn
+      </div>
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <span class="cart">🛒 <span class="cart-count" id="cartCount">0</span></span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Bee On – Good Vibes & Great Merch 🐝</h1>
+    <p>Spreading bee puns, honey love, and save-the-bees energy — one comfy tee, mug, or tote at a time. Made fresh with print-on-demand magic.</p>
+  </section>
+
+  <section class="products" id="shop">
+    <div class="product-card">
+      <img src="https://images.vexels.com/media/users/3/308390/raw/b83a58588eab66c8b00a9987a5b86f71-queen-bee-quote-t-shirt-design.jpg" alt="To Bee or Not To Bee T-Shirt" class="product-img">
+      <div class="product-info">
+        <h3>To Bee or Not To Bee</h3>
+        <p class="price">$28.00</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.vexels.com/media/users/3/349336/raw/5dbc13293b20c6d1b6502e54b8d23ff9-queen-bee-positive-affirmation-t-shirt-design.jpg" alt="Queen Bee-lieve T-Shirt" class="product-img">
+      <div class="product-info">
+        <h3>Queen Bee-lieve in Yourself</h3>
+        <p class="price">$32.00</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://thumbs.dreamstime.com/b/cute-bee-icon-simple-yellow-black-insect-graphic-nature-business-flat-design-small-cartoon-logo-doodle-style-set-421641901.jpg" alt="Bee Kind Mug" class="product-img" style="object-fit:contain;">
+      <div class="product-info">
+        <h3>Bee Kind Mug</h3>
+        <p class="price">$18.00</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.vexels.com/media/users/3/349057/raw/df0a47d1eb1e5a58723755364b377173-self-belief-bee-t-shirt-design.jpg" alt="Beelieve in Yourself Tote" class="product-img">
+      <div class="product-info">
+        <h3>Beelieve in Yourself Tote</h3>
+        <p class="price">$24.00</p>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 beeOn – Save the Bees, Wear the Puns 🐝 • Made with ❤️ in Massachusetts</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+    const cartDisplay = document.getElementById('cartCount');
+
+    function addToCart() {
+      cartCount++;
+      cartDisplay.textContent = cartCount;
+      alert("Added to cart! (This is a demo – real cart coming soon 🐝)");
+    }
+  </script>
+
+</body>
+</html>
